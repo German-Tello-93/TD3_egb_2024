@@ -1,4 +1,5 @@
 bookmarkIndicationColor=128,128,128
 eclipse.preferences.version=1
 org.eclipse.cdt.ui.occurrenceIndicationColor=128,128,128
+org.eclipse.cdt.ui.writeOccurrenceIndicationColor=183,134,32
 overviewRuler_migration=migrated_3.1
