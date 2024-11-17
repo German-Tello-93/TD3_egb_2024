@@ -43,6 +43,10 @@ typedef struct{
 #define blinkTASK_STACK_SIZE  	configMINIMAL_STACK_SIZE
 #define blinkTASK_PRIORITY		tskIDLE_PRIORITY + 1
 
+
+#define sendTASK_STACK_SIZE  	configMINIMAL_STACK_SIZE
+#define sendTASK_PRIORITY		tskIDLE_PRIORITY + 1
+
 #define defBUFFER_SIZE 6
 #define commandBIT 1
 
@@ -50,7 +54,10 @@ typedef struct{
 #define runRTOS 'A'
 #define LED_ON 'B'
 #define LED_OFF 'C'
+#define resp 'D'
 #define MSG "Hola\n"
+
+#define MSG2 "E\n"
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -62,10 +69,12 @@ typedef struct{
 I2C_HandleTypeDef hi2c1;
 
 /* USER CODE BEGIN PV */
-TaskHandle_t hi2c_task, hblk_task;
-QueueHandle_t hi2c_q, hblk_q;
+TaskHandle_t hi2c_task, hblk_task, snd_task;
+QueueHandle_t hi2c_q, hblk_q, send_q;
 
 uint8_t flag_rtos = RESET;
+
+uint8_t counter = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -99,6 +108,16 @@ void i2c_slave_rx_process(uint8_t* data, uint16_t size) {
 		xQueueSendFromISR(hblk_q, &queueData, &hptw);
 		break;
 
+	case resp:
+
+		if (counter < 254){
+			counter++;
+		}
+		else{
+			counter = 0;
+		}
+		queueData.value = counter;
+		xQueueSendFromISR(send_q, &queueData, &hptw);
 	default: break;
 	}
 }
@@ -113,19 +132,49 @@ static void blinkTask(void *pvParameters) {
 	}
 }
 
+static void sndTask(void *pvParameters) {
+	//vTaskSuspend(NULL); //Task Jumper
+	queueData_t queueData;
+	uint8_t valor;
+	for(;;) {
+		xQueueReceive(send_q, &queueData, portMAX_DELAY);
+		//valor = queueData.value;
+
+		i2c_set_txBuffer((uint8_t *)MSG2, strlen(MSG2));
+		/*
+		if (counter < 254){
+			counter++;
+		}
+		else{
+			counter = 0;
+		}
+		*/
+		//vTaskDelay(1000/portTICK_PERIOD_MS);
+	}
+}
+
+
+
 static void startRTOS() {
 	HAL_GPIO_WritePin(led_GPIO_Port, led_Pin, SET);
 	i2c_set_txBuffer((uint8_t *) MSG, strlen(MSG));
 
 	hi2c_q = xQueueCreate(1, sizeof(queueData_t));
 	hblk_q = xQueueCreate(1, sizeof(queueData_t));
+	send_q = xQueueCreate(1, sizeof(queueData_t));
 
 	xTaskCreate(blinkTask,
-	  		    "LED PC13 blink Task",
-				blinkTASK_STACK_SIZE,
-	  			NULL,
-				blinkTASK_PRIORITY,
-	  			&hblk_task);
+			"LED PC13 blink Task",
+			blinkTASK_STACK_SIZE,
+			NULL,
+			blinkTASK_PRIORITY,
+			&hblk_task);
+	xTaskCreate(sndTask,
+			"send Task",
+			sendTASK_STACK_SIZE,
+			NULL,
+			sendTASK_PRIORITY,
+			&snd_task);
 
 	vTaskStartScheduler();
 }
