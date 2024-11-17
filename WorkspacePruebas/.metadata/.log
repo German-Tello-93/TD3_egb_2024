@@ -1528,3 +1528,45 @@ java.net.UnknownHostException: download.eclipse.org
 	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:246)
 	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2024-11-14 21:53:46.824 -----------------------------------------------
+eclipse.buildId=Version 1.6.1
+java.version=11.0.9.1
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_AR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-11-14 21:54:18.368
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-11-14 21:54:18.946
+!MESSAGE Log4j initialized with config file C:\Users\germa\Documents\TD3 2024\TD3_egb_2024\WorkspacePruebas\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-11-14 21:54:51.884
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2024-11-14 21:54:52.993
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-11-14 22:03:28.054
+!MESSAGE Indexed 'i2c_slave_bluepill' (22 sources, 102 headers) in 5,51 sec: 8.499 declarations; 47.616 references; 6 unresolved inclusions; 36 syntax errors; 194 unresolved names (0,34 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-11-14 22:07:22.735
+!MESSAGE Indexed 'i2c_slave_bluepill' (22 sources, 113 headers) in 4,2 sec: 9.004 declarations; 48.539 references; 2 unresolved inclusions; 36 syntax errors; 188 unresolved names (0,33 %)
+!SESSION 2024-11-16 20:45:16.885 -----------------------------------------------
+eclipse.buildId=Version 1.6.1
+java.version=11.0.9.1
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_AR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-11-16 20:45:50.221
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-11-16 20:45:50.655
+!MESSAGE Log4j initialized with config file C:\Users\germa\Documents\TD3 2024\TD3_egb_2024\WorkspacePruebas\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-11-16 20:46:32.682
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2024-11-16 20:46:34.173
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties

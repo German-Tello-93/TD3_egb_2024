@@ -7,6 +7,7 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\germa\Documents\TD3 2024\TD3_egb_2024\WorkspacePruebas\i2c_slave_bluepill"/>
 			<item value="C:\Users\germa\Documents\TD3 2024\2024_td3_material_de_catedra\TD3_Unidad 4 - Procesadores avanzados de 32-64 bits\i2c_slave_bluepill"/>
 			<item value="C:\Users\germa\Documents\TD3 2024\TD3_egb_2024\WorkspacePruebas\td3_ega_2024"/>
 			<item value="C:\Users\germa\Documents\TD3 2024\TD3_egb_2024\WorkspacePruebas\TD3_EGA_2024_G7"/>
