@@ -1,0 +1,1 @@
+savedcmd_/home/german/Desktop/examples/1test/build/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/german/Desktop/examples/1test/build/Module.symvers -T /home/german/Desktop/examples/1test/build/modules.order -i Module.symvers -e 

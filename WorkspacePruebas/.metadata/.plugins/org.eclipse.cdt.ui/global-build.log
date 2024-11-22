@@ -1,17 +1,26 @@
-17:31:44 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+12:23:18 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
 make -j4 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/germa/Documents/TD3 2024/TD3_egb_2024/WorkspacePruebas/FreeRTOS/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'i2c_slave_rx_process':
-../Core/Src/main.c:90:21: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
-   90 |  value = (uint16_t) atoi((char*) &data[commandBIT]);
-      |                     ^~~~
-../Core/Src/main.c:88:11: warning: variable 'value' set but not used [-Wunused-but-set-variable]
-   88 |  uint16_t value;
+../Core/Src/main.c:90:11: warning: variable 'value' set but not used [-Wunused-but-set-variable]
+   90 |  uint16_t value;
       |           ^~~~~
+../Core/Src/main.c:89:13: warning: unused variable 'hptw' [-Wunused-variable]
+   89 |  BaseType_t hptw = SET;
+      |             ^~~~
+../Core/Src/main.c:88:14: warning: unused variable 'queueData' [-Wunused-variable]
+   88 |  queueData_t queueData;
+      |              ^~~~~~~~~
 ../Core/Src/main.c: In function 'sndTask':
-../Core/Src/main.c:138:10: warning: unused variable 'valor' [-Wunused-variable]
-  138 |  uint8_t valor;
-      |          ^~~~~
+../Core/Src/main.c:156:20: warning: passing argument 1 of 'i2c_set_txBuffer' from incompatible pointer type [-Wincompatible-pointer-types]
+  156 |   i2c_set_txBuffer(&test, strlen(test));
+      |                    ^~~~~
+      |                    |
+      |                    char (*)[6]
+In file included from ../Core/Src/main.c:32:
+../Core/Inc/i2c_slave_bluepill.h:152:32: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char (*)[6]'
+  152 | void i2c_set_txBuffer(uint8_t* data, uint8_t size);
+      |                       ~~~~~~~~~^~~~
 arm-none-eabi-gcc -o "i2c_slave_bluepill.elf" @"objects.list"  -lFreeRTOS -mcpu=cortex-m3 -T"C:\Users\germa\Documents\TD3 2024\TD3_egb_2024\WorkspacePruebas\i2c_slave_bluepill\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="i2c_slave_bluepill.map" -Wl,--gc-sections -static -Wl,--start-group -lFreeRTOS -Wl,--end-group -L"C:\Users\germa\Documents\TD3 2024\TD3_egb_2024\WorkspacePruebas\FreeRTOS\Debug" --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: i2c_slave_bluepill.elf
  
@@ -19,17 +28,182 @@ arm-none-eabi-objdump -h -S  i2c_slave_bluepill.elf  > "i2c_slave_bluepill.list"
 arm-none-eabi-objcopy  -O binary  i2c_slave_bluepill.elf  "i2c_slave_bluepill.bin"
 arm-none-eabi-size   i2c_slave_bluepill.elf 
    text	   data	    bss	    dec	    hex	filename
-  26056	    128	   2200	  28384	   6ee0	i2c_slave_bluepill.elf
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
 Finished building: default.size.stdout
  
 Finished building: i2c_slave_bluepill.bin
  
 Finished building: i2c_slave_bluepill.list
  
-17:31:56 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+12:23:28 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
 make -j4 all 
 arm-none-eabi-size   i2c_slave_bluepill.elf 
    text	   data	    bss	    dec	    hex	filename
-  26056	    128	   2200	  28384	   6ee0	i2c_slave_bluepill.elf
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
+Finished building: default.size.stdout
+ 
+12:25:04 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+make -j4 all 
+arm-none-eabi-size   i2c_slave_bluepill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
+Finished building: default.size.stdout
+ 
+12:26:16 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+make -j4 all 
+arm-none-eabi-size   i2c_slave_bluepill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
+Finished building: default.size.stdout
+ 
+12:27:43 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/germa/Documents/TD3 2024/TD3_egb_2024/WorkspacePruebas/FreeRTOS/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'i2c_slave_rx_process':
+../Core/Src/main.c:90:11: warning: variable 'value' set but not used [-Wunused-but-set-variable]
+   90 |  uint16_t value;
+      |           ^~~~~
+../Core/Src/main.c:89:13: warning: unused variable 'hptw' [-Wunused-variable]
+   89 |  BaseType_t hptw = SET;
+      |             ^~~~
+../Core/Src/main.c:88:14: warning: unused variable 'queueData' [-Wunused-variable]
+   88 |  queueData_t queueData;
+      |              ^~~~~~~~~
+../Core/Src/main.c: In function 'sndTask':
+../Core/Src/main.c:156:20: warning: passing argument 1 of 'i2c_set_txBuffer' from incompatible pointer type [-Wincompatible-pointer-types]
+  156 |   i2c_set_txBuffer(&test, strlen(test));
+      |                    ^~~~~
+      |                    |
+      |                    char (*)[6]
+In file included from ../Core/Src/main.c:32:
+../Core/Inc/i2c_slave_bluepill.h:152:32: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char (*)[6]'
+  152 | void i2c_set_txBuffer(uint8_t* data, uint8_t size);
+      |                       ~~~~~~~~~^~~~
+arm-none-eabi-gcc -o "i2c_slave_bluepill.elf" @"objects.list"  -lFreeRTOS -mcpu=cortex-m3 -T"C:\Users\germa\Documents\TD3 2024\TD3_egb_2024\WorkspacePruebas\i2c_slave_bluepill\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="i2c_slave_bluepill.map" -Wl,--gc-sections -static -Wl,--start-group -lFreeRTOS -Wl,--end-group -L"C:\Users\germa\Documents\TD3 2024\TD3_egb_2024\WorkspacePruebas\FreeRTOS\Debug" --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: i2c_slave_bluepill.elf
+ 
+arm-none-eabi-objdump -h -S  i2c_slave_bluepill.elf  > "i2c_slave_bluepill.list"
+arm-none-eabi-objcopy  -O binary  i2c_slave_bluepill.elf  "i2c_slave_bluepill.bin"
+arm-none-eabi-size   i2c_slave_bluepill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
+Finished building: default.size.stdout
+ 
+Finished building: i2c_slave_bluepill.bin
+ 
+Finished building: i2c_slave_bluepill.list
+ 
+12:30:51 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+make -j4 all 
+arm-none-eabi-size   i2c_slave_bluepill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
+Finished building: default.size.stdout
+ 
+12:54:18 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+make -j4 all 
+arm-none-eabi-size   i2c_slave_bluepill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
+Finished building: default.size.stdout
+ 
+13:09:17 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+make -j4 all 
+arm-none-eabi-size   i2c_slave_bluepill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
+Finished building: default.size.stdout
+ 
+13:34:30 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+make -j4 all 
+arm-none-eabi-size   i2c_slave_bluepill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
+Finished building: default.size.stdout
+ 
+13:38:24 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+make -j4 all 
+arm-none-eabi-size   i2c_slave_bluepill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
+Finished building: default.size.stdout
+ 
+13:42:13 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+make -j4 all 
+arm-none-eabi-size   i2c_slave_bluepill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
+Finished building: default.size.stdout
+ 
+13:43:33 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+make -j4 all 
+arm-none-eabi-size   i2c_slave_bluepill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
+Finished building: default.size.stdout
+ 
+13:51:29 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+make -j4 all 
+arm-none-eabi-size   i2c_slave_bluepill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
+Finished building: default.size.stdout
+ 
+13:52:18 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/germa/Documents/TD3 2024/TD3_egb_2024/WorkspacePruebas/FreeRTOS/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'i2c_slave_rx_process':
+../Core/Src/main.c:90:11: warning: variable 'value' set but not used [-Wunused-but-set-variable]
+   90 |  uint16_t value;
+      |           ^~~~~
+../Core/Src/main.c:89:13: warning: unused variable 'hptw' [-Wunused-variable]
+   89 |  BaseType_t hptw = SET;
+      |             ^~~~
+../Core/Src/main.c:88:14: warning: unused variable 'queueData' [-Wunused-variable]
+   88 |  queueData_t queueData;
+      |              ^~~~~~~~~
+../Core/Src/main.c: In function 'sndTask':
+../Core/Src/main.c:156:20: warning: passing argument 1 of 'i2c_set_txBuffer' from incompatible pointer type [-Wincompatible-pointer-types]
+  156 |   i2c_set_txBuffer(&test, strlen(test));
+      |                    ^~~~~
+      |                    |
+      |                    char (*)[6]
+In file included from ../Core/Src/main.c:32:
+../Core/Inc/i2c_slave_bluepill.h:152:32: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char (*)[6]'
+  152 | void i2c_set_txBuffer(uint8_t* data, uint8_t size);
+      |                       ~~~~~~~~~^~~~
+arm-none-eabi-gcc -o "i2c_slave_bluepill.elf" @"objects.list"  -lFreeRTOS -mcpu=cortex-m3 -T"C:\Users\germa\Documents\TD3 2024\TD3_egb_2024\WorkspacePruebas\i2c_slave_bluepill\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="i2c_slave_bluepill.map" -Wl,--gc-sections -static -Wl,--start-group -lFreeRTOS -Wl,--end-group -L"C:\Users\germa\Documents\TD3 2024\TD3_egb_2024\WorkspacePruebas\FreeRTOS\Debug" --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: i2c_slave_bluepill.elf
+ 
+arm-none-eabi-objdump -h -S  i2c_slave_bluepill.elf  > "i2c_slave_bluepill.list"
+arm-none-eabi-objcopy  -O binary  i2c_slave_bluepill.elf  "i2c_slave_bluepill.bin"
+arm-none-eabi-size   i2c_slave_bluepill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
+Finished building: default.size.stdout
+ 
+Finished building: i2c_slave_bluepill.bin
+ 
+Finished building: i2c_slave_bluepill.list
+ 
+14:59:56 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+make -j4 all 
+arm-none-eabi-size   i2c_slave_bluepill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
+Finished building: default.size.stdout
+ 
+15:00:42 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+make -j4 all 
+arm-none-eabi-size   i2c_slave_bluepill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
+Finished building: default.size.stdout
+ 
+15:01:36 **** Incremental Build of configuration Debug for project i2c_slave_bluepill ****
+make -j4 all 
+arm-none-eabi-size   i2c_slave_bluepill.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25312	    128	   2440	  27880	   6ce8	i2c_slave_bluepill.elf
 Finished building: default.size.stdout
  

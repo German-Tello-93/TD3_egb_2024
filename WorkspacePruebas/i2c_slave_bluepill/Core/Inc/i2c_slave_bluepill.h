@@ -18,8 +18,8 @@ extern "C" {
 #include <stdio.h>
 #include <string.h>
 
-#define rxBUFFER_SIZE 6
-#define txBUFFER_SIZE 6
+#define rxBUFFER_SIZE 128
+#define txBUFFER_SIZE 128
 
 #define i2c_handler I2C_HandleTypeDef
 
