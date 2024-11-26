@@ -5,7 +5,7 @@ sin funcion de request, todo en el main
 
 
 
-
+					funciona
 			
 
 
@@ -196,11 +196,12 @@ int main(int argc, char *argv[]) {
 				
 				break;
 			case 2:
+				//agregar verificacion de usuario maestro
 				printf("Ingrese una opcion: \n  1 .Asignar usuario\n  2 .burrar usuario\n  3. menu anterior");
 			
 				fgets(straux, 100, stdin);
 				switch(aux){
-					case 1:
+					case 1://asignar usuario
 						memset(user, '\0', strlen(user));
 						memset(pass, '\0', strlen(pass));
 						
@@ -248,7 +249,7 @@ int main(int argc, char *argv[]) {
 						file_write(file, "/proc/td3/i2c", str);
 						//}    del else
 						break;
-					case 2:
+					case 2://borrar usuario
 					
 						memset(user, '\0', strlen(user));
 						memset(pass, '\0', strlen(pass));
