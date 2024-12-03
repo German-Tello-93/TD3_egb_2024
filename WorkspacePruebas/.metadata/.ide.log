@@ -4155,3 +4155,43 @@
 
 
 2024-11-22 18:56:01,815 [INFO] Activator:171 - !SESSION log4j initialized
+2024-11-26 21:39:11,032 [INFO] Activator:170 - 
+
+
+2024-11-26 21:39:11,049 [INFO] Activator:171 - !SESSION log4j initialized
+2024-11-27 19:20:32,548 [INFO] Activator:170 - 
+
+
+2024-11-27 19:20:32,580 [INFO] Activator:171 - !SESSION log4j initialized
+2024-11-27 19:25:21,498 [INFO] RetryExec:97 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {s}->https://sw-center.st.com:443: The target server failed to respond
+2024-11-27 19:25:21,498 [INFO] RetryExec:113 - Retrying request to {s}->https://sw-center.st.com:443
+2024-11-27 19:25:58,667 [INFO] RetryExec:97 - I/O exception (java.net.NoRouteToHostException) caught when processing request to {s}->https://download.eclipse.org:443: No route to host: connect
+2024-11-27 19:25:58,667 [INFO] RetryExec:113 - Retrying request to {s}->https://download.eclipse.org:443
+2024-11-27 19:25:58,667 [INFO] RetryExec:97 - I/O exception (java.net.NoRouteToHostException) caught when processing request to {s}->https://download.eclipse.org:443: No route to host: connect
+2024-11-27 19:25:58,667 [INFO] RetryExec:113 - Retrying request to {s}->https://download.eclipse.org:443
+2024-11-27 19:25:58,667 [INFO] RetryExec:97 - I/O exception (java.net.NoRouteToHostException) caught when processing request to {s}->https://download.eclipse.org:443: No route to host: connect
+2024-11-27 19:25:58,667 [INFO] RetryExec:113 - Retrying request to {s}->https://download.eclipse.org:443
+2024-11-27 19:25:58,683 [INFO] RetryExec:97 - I/O exception (java.net.NoRouteToHostException) caught when processing request to {s}->https://download.eclipse.org:443: No route to host: connect
+2024-11-27 19:25:58,683 [INFO] RetryExec:113 - Retrying request to {s}->https://download.eclipse.org:443
+2024-11-27 19:25:58,683 [INFO] RetryExec:97 - I/O exception (java.net.NoRouteToHostException) caught when processing request to {s}->https://download.eclipse.org:443: No route to host: connect
+2024-11-27 19:25:58,683 [INFO] RetryExec:113 - Retrying request to {s}->https://download.eclipse.org:443
+2024-11-27 19:25:58,683 [INFO] RetryExec:97 - I/O exception (java.net.NoRouteToHostException) caught when processing request to {s}->https://download.eclipse.org:443: No route to host: connect
+2024-11-27 19:25:58,683 [INFO] RetryExec:113 - Retrying request to {s}->https://download.eclipse.org:443
+2024-11-27 19:25:58,683 [INFO] RetryExec:97 - I/O exception (java.net.NoRouteToHostException) caught when processing request to {s}->https://download.eclipse.org:443: No route to host: connect
+2024-11-27 19:25:58,683 [INFO] RetryExec:113 - Retrying request to {s}->https://download.eclipse.org:443
+2024-11-27 19:25:58,683 [INFO] RetryExec:97 - I/O exception (java.net.NoRouteToHostException) caught when processing request to {s}->https://download.eclipse.org:443: No route to host: connect
+2024-11-27 19:25:58,698 [INFO] RetryExec:113 - Retrying request to {s}->https://download.eclipse.org:443
+2024-11-27 19:25:58,698 [INFO] RetryExec:97 - I/O exception (java.net.NoRouteToHostException) caught when processing request to {s}->https://download.eclipse.org:443: No route to host: connect
+2024-11-27 19:25:58,698 [INFO] RetryExec:113 - Retrying request to {s}->https://download.eclipse.org:443
+2024-11-30 10:58:35,995 [INFO] Activator:170 - 
+
+
+2024-11-30 10:58:36,018 [INFO] Activator:171 - !SESSION log4j initialized
+2024-11-30 18:36:43,540 [INFO] Activator:170 - 
+
+
+2024-11-30 18:36:43,556 [INFO] Activator:171 - !SESSION log4j initialized
+2024-12-01 16:07:29,918 [INFO] Activator:170 - 
+
+
+2024-12-01 16:07:29,935 [INFO] Activator:171 - !SESSION log4j initialized

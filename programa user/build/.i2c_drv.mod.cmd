@@ -1,0 +1,1 @@
+savedcmd_/home/german/Desktop/examples/1test/build/i2c_drv.mod := printf '%s\n'   i2c_drv.o | awk '!x[$$0]++ { print("/home/german/Desktop/examples/1test/build/"$$0) }' > /home/german/Desktop/examples/1test/build/i2c_drv.mod

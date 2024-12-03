@@ -59,7 +59,11 @@ typedef struct{
 #define MSG "Hola12\n"
 
 #define MSG2 "123456789012345678901234567890123456789012345678901234567890\n"
-#define MSG3 "01,r,1,1111,0,5,$"
+#define MSG3 "01,r,1,xxxx1111,0,5,$"
+#define MSGOK "00,l,x,xxxxxxx1,x,5,$"
+#define MSGNO "00,l,x,xxxxxxx1,x,4,$"
+#define MSGDEN "01,r,x,xxxx1110,x,6,$"
+#define MSGA "02,a,1,5,$"
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -88,10 +92,77 @@ void i2c_slave_rx_process(uint8_t* data, uint16_t size) {
 	queueData_t queueData;
 	BaseType_t hptw = SET;
 	uint16_t value;
+	char test[defBUFFER_SIZE];
+	char p,q,r;
 
-	value = (uint16_t) atoi((char*) &data[commandBIT]);
+	memset(&test,'\0', sizeof(test));
 
-	flag_rtos = SET;
+	/*value = (uint16_t) atoi((char*) &data[commandBIT]);
+
+	i2c_set_txBuffer(MSG3, strlen(MSG3));
+	 */
+
+	strcpy(test, data);
+
+	p = data[3];
+
+	if(p=='l'){
+		q = test[18];
+		value = (uint16_t) atoi((char*) test[18]);
+		if (q == '2') {//SCAN
+			if(counter==0){
+				i2c_set_txBuffer(MSGNO, strlen(MSGNO));//responde que no hay informacion
+			}
+			else{
+				i2c_set_txBuffer(MSGOK, strlen(MSGOK));//responde que hay informacion
+			}
+
+
+
+		} else if (q == '0') {//solicitud de informacion
+			switch (counter){
+							case 0:
+								i2c_set_txBuffer(MSGNO, strlen(MSGNO));//responde que no hay informacion
+								break;
+
+							case 1:
+								i2c_set_txBuffer(MSG3, strlen(MSG3));//responde mensaje 1: acceso de usuario
+								counter--;
+								break;
+							case 2:
+								i2c_set_txBuffer(MSGA, strlen(MSGA));//responde mensaje 2: actuador
+								counter--;
+								break;
+
+
+			}
+			//i2c_set_txBuffer(MSG3, strlen(MSG3));//responde que hay informacion
+		}
+	}
+	if(p=='p'){
+		q = test[18];
+		//value = (uint16_t) atoi((char*) test[18]);
+		if (q == '0') {//solisitud de accseo
+			r = test[14];
+			if(r == '1'){
+				i2c_set_txBuffer(MSG3, strlen(MSG3));//responde acceso ok
+
+			}
+			else{
+				i2c_set_txBuffer(MSGDEN, strlen(MSGDEN));//responde acceso den
+			}
+
+			counter = 2;
+		}
+	}
+
+
+	//i2c_set_txBuffer(MSG3, strlen(MSG3));
+
+
+
+
+	//flag_rtos = SET;
 	/*
 	if(!flag_rtos) {
 		if(runRTOS == data[0]) {
@@ -151,8 +222,8 @@ static void sndTask(void *pvParameters) {
 		//valor = queueData.value;
 
 		memset(&test,'\0', sizeof(test));
-		itoa(queueData.value, test, 10);
-		strcat(test, MSG2);
+		//itoa(queueData.value, test, 10);
+		//strcat(test, MSG3);
 		i2c_set_txBuffer(&test, strlen(test));
 		//i2c_set_txBuffer((uint8_t *)MSG2, strlen(MSG2));
 		/*

@@ -1,0 +1,1 @@
+savedcmd_/home/german/Desktop/examples/1test/build/i2c_drv.ko := ld -r -EL  -maarch64elf -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T arch/arm64/module.lds -o /home/german/Desktop/examples/1test/build/i2c_drv.ko /home/german/Desktop/examples/1test/build/i2c_drv.o /home/german/Desktop/examples/1test/build/i2c_drv.mod.o;  true
