@@ -11,7 +11,7 @@ AUTHOR := TD3
 # Nombre de editor de texto
 EDITOR := nano
 # Etiqueta para definir el nombre del programa de usuario
-USER := mainuser8
+USER := mainuser81
 
 
 # Codigo fuente para compilar

@@ -8,7 +8,7 @@ log de datos actualizado
 
 
 			
-					
+				funciona	
 			
 
 
@@ -378,7 +378,7 @@ void *menu(void *parameter) {
 	memset(str, '\0', strlen(str));
 
 
-	printf("Bienvenido al sistema de control de accseso Version4\n");
+	printf("Bienvenido al sistema de control de accseso \n");
 	//sleep(6);
 	
 	
@@ -490,7 +490,7 @@ void *menu(void *parameter) {
 				}
 				if(master==ACC_OK || tempmaster==ACC_OK){
 					tempmaster = ACC_DEN;
-					printf("  1 .Asignar usuario\n  2 .burrar usuario\n  3. menu anterior \nIngrese una opcion: \n");
+					printf("  1 .Asignar usuario\n  2 .borrar usuario\n  3. menu anterior \nIngrese una opcion: \n");
 				
 					fgets(straux, 100, stdin);
 					auxmenu = atoi(straux);

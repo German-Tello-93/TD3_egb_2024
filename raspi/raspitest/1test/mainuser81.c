@@ -159,6 +159,8 @@ int requestAcc(char *user){
 						
 	printf("%c", p);
 	int a = p - '0';
+	
+	system("clear");
 							
 	if(a == ACC_OK){
 		printf("\nACSESO CONCEDIDO\n");
@@ -376,9 +378,11 @@ void *menu(void *parameter) {
 	char op[3];
 	
 	memset(str, '\0', strlen(str));
+	
+	system("clear");
+	
 
-
-	printf("Bienvenido al sistema de control de accseso Version4\n");
+	printf("Bienvenido al sistema de control de accseso \n");
 	//sleep(6);
 	
 	
@@ -386,50 +390,6 @@ void *menu(void *parameter) {
         //bucle para esperar confirmacion de acseso
 		while(acceso != ACC_OK){
 			
-			/*
-			//borrado de memoria
-			memset(user, '\0', strlen(user));
-			memset(pass, '\0', strlen(pass));
-			
-			printf("ingrese numero de usuario: ");
-			fgets(user, 3, stdin);
-			user[sizeof(user) - 2] = '\0';
-			//strcpy(user,"1");
-			//printf("\nIngrese contraseña para ususario %s:",user);
-			printf("contraseña:");
-			fgets(pass, 10, stdin);
-			pass[strlen(pass) - 1] = '\0';
-			
-			//acceso = requestAcc(user, pass);
-			memset(str, '\0', strlen(str));
-			strcat(str, "00,p,");
-			strcat(str, user);
-			strcat(str, ",xxxx");
-			strcat(str, pass);
-			strcat(str, ",0,0,$");
-
-			printf("%s",str);
-			file_write(file, "/proc/td3/i2c", str);
-			
-			delay_ms(1);
-			
-			file_read(file, "/proc/td3/i2c", str);
-			printf("%s",str);
-			
-			char p = str[18];
-			
-			printf("%c", p);
-			int a = p - '0';
-			
-			if(a == ACC_OK){
-				acceso = ACC_OK;
-				printf("\nACSESO CONCEDIDO\n");
-			}
-			
-			if(acceso != ACC_OK){
-				printf("\nACSESO DENEGADO\n");
-			}
-			*/
 					
 			printf("\n Ingrese numero de usuario: ");
 			fgets(user, 3, stdin);
@@ -490,10 +450,12 @@ void *menu(void *parameter) {
 				}
 				if(master==ACC_OK || tempmaster==ACC_OK){
 					tempmaster = ACC_DEN;
-					printf("  1 .Asignar usuario\n  2 .burrar usuario\n  3. menu anterior \nIngrese una opcion: \n");
+					printf("  1 .Asignar usuario\n  2 .borrar usuario\n  3. menu anterior \nIngrese una opcion: ");
 				
 					fgets(straux, 100, stdin);
 					auxmenu = atoi(straux);
+					
+					system("clear");
 					
 					switch(auxmenu){
 						
@@ -542,11 +504,32 @@ void *menu(void *parameter) {
 							strcat(str, "00,p,");
 							strcat(str, user);
 							strcat(str, ",0000");
+							
+							//---invertir caracteres
+							int longitud = strlen(pass);  // Obtener la longitud de la cadena
+							int inicio = 0;                 // Índice inicial
+							int fin = longitud - 1;         // Índice final
+
+							
+							while (inicio < fin) {
+								char temp = pass[inicio];
+								pass[inicio] = pass[fin];
+								pass[fin] = temp;
+								inicio++;
+								fin--;
+							}
+							//----invertir caracteres
+							
+							
+							
 							strcat(str, pass);
 							strcat(str, ",0,01,$");//1=write
 							
+							
+							system("clear");
+							
 							file_write(file, "/proc/td3/i2c", str);
-							printf("USUARIO AÑADIDO\n");
+							printf("USUARIO AÑADIDO\n\n");
 							memset(user, '\0', strlen(user));
 							//}    del else
 							break;
@@ -558,6 +541,10 @@ void *menu(void *parameter) {
 							
 							printf("ingrese numero de usuario a borrar: ");
 							fgets(user, 3, stdin);
+							if(user[0]=='0'){
+								printf("No se puede eliminar el usuario maestro\n");
+								break;
+							}
 							user[sizeof(user) - 2] = '\0';
 							strcpy(pass, "0000");
 							
@@ -568,8 +555,11 @@ void *menu(void *parameter) {
 							strcat(str, pass);
 							strcat(str, ",0,01,$");//1=write
 							
+							
+							system("clear");
+							
 							file_write(file, "/proc/td3/i2c", str);
-							printf("USUARIO BORRADO\n");
+							printf("USUARIO BORRADO\n\n");
 							memset(user, '\0', strlen(user));
 							break;
 						case 3:
@@ -595,6 +585,8 @@ void *menu(void *parameter) {
 					
 					fgets(straux, 100, stdin);
 					auxlog = atoi(straux);
+					
+					system("clear");
 						
 					switch(auxlog){
 						case 1:
@@ -634,8 +626,10 @@ void *menu(void *parameter) {
 					}		
 				}
 				break;	
-				
+			case 4:
+				exit(0);
 			default:
+				system("clear");
 				printf("opcion invalida\n");
 				break;
 		}
